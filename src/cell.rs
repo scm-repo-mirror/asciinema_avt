@@ -1,10 +1,10 @@
 use crate::pen::Pen;
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
-pub struct Cell(char, usize, Pen);
+pub struct Cell(char, u8, Pen);
 
 impl Cell {
-    pub(crate) fn new(ch: char, width: usize, pen: Pen) -> Self {
+    pub(crate) fn new(ch: char, width: u8, pen: Pen) -> Self {
         Cell(ch, width, pen)
     }
 
@@ -20,7 +20,7 @@ impl Cell {
         self.0
     }
 
-    pub fn width(&self) -> usize {
+    pub fn width(&self) -> u8 {
         self.1
     }
 
@@ -28,7 +28,7 @@ impl Cell {
         &self.2
     }
 
-    pub fn set(&mut self, ch: char, width: usize, pen: Pen) {
+    pub fn set(&mut self, ch: char, width: u8, pen: Pen) {
         self.0 = ch;
         self.1 = width;
         self.2 = pen;

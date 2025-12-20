@@ -1356,13 +1356,15 @@ mod tests {
         let mut cells = cursor_line.cells().iter().filter(|c| c.width() > 0);
 
         for cell in cells.by_ref() {
-            if offset + cell.width() <= cursor_col {
+            let width = cell.width() as usize;
+
+            if offset + width <= cursor_col {
                 line.push(cell.char());
-                offset += cell.width();
+                offset += width;
             } else {
                 line.push('|');
                 line.push(cell.char());
-                offset += cell.width();
+                offset += width;
                 break;
             }
         }
